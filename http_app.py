@@ -7,8 +7,16 @@ app = Flask(__name__)
 @app.route("/login", methods=["GET", "POST"])
 def login():
     # リクエストメソッドの使用
-    print(request.method)
-    return "login page"
+    # リクエストメソッドGETのときは以下の処理を行う
+    if request.method == "GET":
+        return '''
+        <form action="/login" method="post">
+            Password:<input type="text"><br>
+            <input type='submit'>
+        </from>
+        '''
+    # リクエストメソッドPOSTの時は以下の処理を行う
+    return "Logged in"
 
 
 if __name__ == '__main__':
