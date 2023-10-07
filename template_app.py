@@ -11,6 +11,11 @@ def index():
 @app.route("/user/<name>")
 def hello(name):
     return render_template("hello.html", name=name)
+
+@app.route("/member")
+def members():
+    members = ["Bob", "Tom", "Ken"]
+    return render_template("member.html", members=members)
     
 if __name__ == '__main__':
     app.run(port=8000, debug=True)
